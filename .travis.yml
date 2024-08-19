@@ -1,0 +1,10 @@
+sudo: required
+services :
+    - docker
+
+before_install :
+    - docker build -t surajp/docker-react -f Dockerfile.dev .
+
+script :
+    - docker run -e CI=true surajp/docker-react npm run test
+    
